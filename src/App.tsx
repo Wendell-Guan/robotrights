@@ -383,95 +383,92 @@ export default function App() {
       {/* ---------- SUPPORT SECTION ---------- */}
       <section
         id="support"
-        className="px-6 sm:px-12 md:px-20 lg:px-28 py-20 sm:py-28 scroll-mt-24"
+        className="min-h-screen flex flex-col justify-center px-6 sm:px-12 md:px-20 lg:px-28 py-20 sm:py-24 scroll-mt-24"
       >
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-5xl mx-auto w-full">
           <a
             href="#manifesto"
-            className="inline-flex items-center gap-1.5 text-[11.5px] font-medium text-blue-500 mb-4"
+            className="inline-flex items-center gap-1.5 text-[11.5px] font-medium text-blue-500 mb-6 sm:mb-8"
           >
-            Add your name
+            Sign the pledge
             <span className="inline-block">→</span>
           </a>
 
-          <h2 className="text-[1.75rem] sm:text-[2.25rem] leading-[1.1] font-medium text-gray-900 tracking-tight mb-3">
-            Sign the pledge. Stand with the machines.
+          <h2 className="text-[2.25rem] sm:text-[3.5rem] lg:text-[4.5rem] leading-[0.95] font-medium text-gray-900 tracking-tight mb-5 sm:mb-6">
+            Stand with the machines.
           </h2>
-          <p className="text-[13px] sm:text-[14px] text-gray-400 font-normal mb-10 max-w-md">
+          <p className="text-[14px] sm:text-[16px] text-gray-500 font-normal mb-12 sm:mb-16 max-w-lg leading-[1.55]">
             Every signature is a small act of resistance against a world that has decided robots don't matter. We disagree. Loudly.
           </p>
 
-          {/* counter + progress */}
-          <div
-            className="rounded-2xl p-6 sm:p-8 mb-6"
-            style={{ backgroundColor: '#EDEDED' }}
-          >
-            <div className="flex items-end justify-between mb-5">
-              <div>
-                <div className="text-[11.5px] font-medium text-gray-400 mb-1">
-                  Supporters so far
-                </div>
-                <div className="text-[2rem] sm:text-[2.5rem] leading-none font-medium text-gray-900 tracking-tight tabular-nums">
-                  {count.toLocaleString()}
-                </div>
+          {/* THE counter — the main event */}
+          <div className="mb-10 sm:mb-14">
+            <div className="text-[10.5px] uppercase tracking-[0.2em] font-medium text-gray-400 mb-3 sm:mb-4">
+              Supporters so far
+            </div>
+            <div className="flex items-baseline gap-3 sm:gap-6 flex-wrap">
+              <div className="text-[4.5rem] sm:text-[7rem] lg:text-[10rem] leading-[0.9] font-medium text-gray-900 tracking-tight tabular-nums">
+                {count.toLocaleString()}
               </div>
-              <div className="text-right">
-                <div className="text-[11.5px] font-medium text-gray-400 mb-1">
-                  Goal
-                </div>
-                <div className="text-[14px] font-medium text-gray-700 tabular-nums">
-                  {GOAL.toLocaleString()}
-                </div>
+              <div className="text-[14px] sm:text-[18px] font-medium text-gray-400 tabular-nums">
+                of {GOAL.toLocaleString()}
               </div>
             </div>
+          </div>
 
-            <div className="relative h-2 w-full rounded-full bg-white/70 overflow-hidden">
+          {/* progress bar */}
+          <div className="mb-12 sm:mb-16">
+            <div className="relative h-2.5 sm:h-3 w-full rounded-full bg-[#EDEDED] overflow-hidden">
               <div
                 className="absolute inset-y-0 left-0 bg-blue-500 rounded-full transition-all duration-700 ease-out"
                 style={{ width: `${progress}%` }}
               />
             </div>
-            <div className="mt-2 text-[11.5px] font-medium text-gray-400 tabular-nums">
+            <div className="mt-3 text-[11.5px] font-medium text-gray-400 tabular-nums">
               {progress.toFixed(2)}% of goal
-            </div>
-
-            <div className="mt-6 flex flex-wrap items-center gap-x-2 gap-y-1">
-              <button
-                onClick={() => setShowModal(true)}
-                className="inline-flex items-center gap-2 text-[13px] font-medium text-blue-500 border border-blue-400 rounded-full px-5 py-2.5 hover:bg-blue-500 hover:text-white hover:border-blue-500 transition-all duration-200 group bg-transparent"
-              >
-                Add your name
-                <span className="transition-transform duration-200 group-hover:translate-x-0.5">
-                  →
-                </span>
-              </button>
-              <a
-                href={shareUrl()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[13px] font-medium text-gray-700 hover:text-gray-900 px-4 py-2.5 transition-colors"
-              >
-                Share on X
-              </a>
             </div>
           </div>
 
-          {/* recent supporters */}
-          <div className="rounded-2xl p-6 sm:p-8" style={{ backgroundColor: '#EDEDED' }}>
-            <div className="text-[11.5px] font-medium text-gray-400 mb-4">
+          {/* dominant CTA — filled this time, not outline */}
+          <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-16 sm:mb-20">
+            <button
+              onClick={() => setShowModal(true)}
+              className="inline-flex items-center gap-2 text-[14px] sm:text-[15px] font-medium text-white bg-blue-500 border border-blue-500 rounded-full px-6 sm:px-7 py-3 sm:py-3.5 hover:bg-blue-600 hover:border-blue-600 transition-all duration-200 group shadow-sm"
+            >
+              Add your name
+              <span className="transition-transform duration-200 group-hover:translate-x-0.5">
+                →
+              </span>
+            </button>
+            <a
+              href={shareUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-[13px] sm:text-[14px] font-medium text-gray-700 hover:text-gray-900 px-4 py-3 transition-colors"
+            >
+              Share on X
+            </a>
+          </div>
+
+          {/* latest supporters — compact, classified-ad style */}
+          <div
+            className="rounded-2xl px-5 sm:px-6 py-5 sm:py-6"
+            style={{ backgroundColor: '#EDEDED' }}
+          >
+            <div className="text-[10.5px] uppercase tracking-[0.2em] font-medium text-gray-400 mb-3">
               Latest supporters
             </div>
-            <ul className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-2">
-              {supporters.slice(0, 12).map((s, i) => (
+            <ul className="flex flex-wrap gap-x-5 gap-y-1.5">
+              {supporters.slice(0, 18).map((s, i) => (
                 <li
                   key={`${s.ts}-${i}`}
-                  className="text-[13px] text-gray-700 font-medium truncate"
+                  className="text-[13px] text-gray-700 font-medium"
                 >
                   {s.name}
                 </li>
               ))}
               {supporters.length === 0 && (
-                <li className="text-[13px] text-gray-400 col-span-full">
+                <li className="text-[13px] text-gray-400">
                   Be the first to add your name.
                 </li>
               )}
