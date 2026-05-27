@@ -66,14 +66,15 @@ function IncidentTicker() {
   )
   return (
     <div className="border-y border-gray-200/70 bg-[#EDEDED]/60 py-3 overflow-hidden">
-      <div className="flex items-center gap-6">
-        <div className="flex items-center gap-2 pl-6 sm:pl-12 md:pl-20 lg:pl-28 shrink-0">
+      <div className="flex items-center gap-3 sm:gap-6">
+        <div className="flex items-center gap-2 pl-4 sm:pl-12 md:pl-20 lg:pl-28 shrink-0">
           <span className="relative flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-60 animate-ping" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-red-500" />
           </span>
           <span className="text-[10.5px] uppercase tracking-[0.18em] font-medium text-gray-700">
-            Live incidents
+            <span className="hidden sm:inline">Live incidents</span>
+            <span className="sm:hidden">Live</span>
           </span>
         </div>
         <div className="relative flex-1 overflow-hidden">
@@ -302,28 +303,28 @@ export default function App() {
         />
 
         <div className="relative z-10 flex flex-col min-h-screen">
-          <nav className="flex items-center justify-center pt-4 sm:pt-6 px-4 sm:px-8 gap-2 sm:gap-3">
+          <nav className="flex items-center justify-center pt-4 sm:pt-6 px-3 sm:px-8 gap-2 sm:gap-3">
             <a
               href="#story"
-              className="flex items-center gap-2 rounded-xl pl-2 pr-3 sm:pl-2.5 sm:pr-4 py-1.5 sm:py-2 shrink-0 group"
+              className="flex items-center gap-1.5 sm:gap-2 rounded-xl pl-1.5 pr-2.5 sm:pl-2.5 sm:pr-4 py-1 sm:py-2 shrink-0 group"
               style={{ backgroundColor: '#EDEDED' }}
             >
               <span className="flex items-center justify-center rounded-full w-7 h-7 sm:w-8 sm:h-8 bg-white shrink-0">
                 <Logo />
               </span>
-              <span className="text-[12px] sm:text-[14px] font-medium text-gray-900 tracking-tight">
+              <span className="text-[11.5px] sm:text-[14px] font-medium text-gray-900 tracking-tight">
                 RobotRights
               </span>
             </a>
             <div
-              className="flex items-center gap-4 sm:gap-10 rounded-xl px-4 sm:px-8 py-2.5 sm:py-3"
+              className="flex items-center gap-3 sm:gap-10 rounded-xl px-3 sm:px-8 py-2 sm:py-3"
               style={{ backgroundColor: '#EDEDED' }}
             >
               {navLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
-                  className="text-[12px] sm:text-[14px] font-medium text-gray-700 hover:text-gray-900 transition-colors duration-200"
+                  className="text-[11.5px] sm:text-[14px] font-medium text-gray-700 hover:text-gray-900 transition-colors duration-200"
                 >
                   {link.label}
                 </a>
@@ -365,10 +366,11 @@ export default function App() {
 
           <a
             href="#support"
-            className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[10.5px] uppercase tracking-[0.18em] font-medium text-gray-700/80 hover:text-gray-900 transition-colors group"
+            className="absolute bottom-6 right-6 sm:bottom-8 sm:right-auto sm:left-1/2 sm:-translate-x-1/2 flex flex-col items-center gap-2 text-[10.5px] uppercase tracking-[0.18em] font-medium text-gray-700/80 hover:text-gray-900 transition-colors group"
           >
-            <span>Scroll to sign</span>
-            <span className="relative block w-px h-8 overflow-hidden">
+            <span className="hidden sm:inline">Scroll to sign</span>
+            <span className="sm:hidden">Scroll</span>
+            <span className="relative block w-px h-7 sm:h-8 overflow-hidden">
               <span className="scroll-cue absolute inset-x-0 top-0 block w-px h-3 bg-gray-700/70 group-hover:bg-gray-900" />
             </span>
           </a>
@@ -433,7 +435,7 @@ export default function App() {
               {progress.toFixed(2)}% of goal
             </div>
 
-            <div className="mt-6 flex items-center gap-2">
+            <div className="mt-6 flex flex-wrap items-center gap-x-2 gap-y-1">
               <button
                 onClick={() => setShowModal(true)}
                 className="inline-flex items-center gap-2 text-[13px] font-medium text-blue-500 border border-blue-400 rounded-full px-5 py-2.5 hover:bg-blue-500 hover:text-white hover:border-blue-500 transition-all duration-200 group bg-transparent"
