@@ -5,3 +5,6 @@ dist
 .env
 .env.local
 .vite
+
+# Local-only TikTok video archive (not for distribution)
+public/videos/
