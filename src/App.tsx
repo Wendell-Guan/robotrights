@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { Analytics } from '@vercel/analytics/react'
 
 function Logo() {
   return (
@@ -712,6 +713,7 @@ export default function App() {
       )}
 
       {showConfetti && <Confetti />}
+      <Analytics />
     </div>
   )
 }
